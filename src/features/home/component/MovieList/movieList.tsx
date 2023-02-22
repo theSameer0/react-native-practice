@@ -1,44 +1,48 @@
 import { 
     Text, 
     View,
-    SectionList,
+    FlatList,
 } from 'react-native'
 import React from 'react'
+import CustomView from '../CustomView/CustomView'
 import CustomHeader from '../CustomHeader/CustomHeader'
+import {styles} from './style'
 
 const Data = [
-    {
-        title:'Movies',
-        data: [
             {
-                name:'Bahubali',
-                language: 'Hindi',
+                name:'Matrix',
+                comment: 'English',
+                image: require('../../../../assets/images/Matrix.png'),
+            },
+            {
+                name: '83',
+                comment: 'Hindi',
+                image: require('../../../../assets/images/83.png'),
+            },
+            {
+                name: 'Saamanyudu',
+                comment: 'Telugu',
+                image: require('../../../../assets/images/Saamanyudu.png'),
+            },
+            {
+                name: 'Pushpa',
+                comment: 'Telugu',
+                image: require('../../../../assets/images/Pushpa.png'),
             }
-        ]
-    }
 ]
 export default function MovieList() {
   return (
-    <SectionList 
-        sections={Data}
-        keyExtractor = {(item)=>item.toString()}
-        renderItem = {
-            ({item})=>(
-                <View>
-                    <Text>
-                        {item.name}
-                    </Text>
-                    <Text>
-                        {item.language}
-                    </Text>
-                </View>
-            )
-        }
-        renderSectionHeader = {
-            ({section})=>(
-                <CustomHeader title = {section.title}/>
-            )
-        }
-    />
+    <View style = {styles.body}>
+        <CustomHeader title="Movies"/>
+        <FlatList 
+            data={Data}
+            horizontal
+            showsHorizontalScrollIndicator = {false}
+            keyExtractor = {(item)=>item.toString()}
+            renderItem = {
+                ({item})=> <CustomView item = {item}/>
+            }
+        />
+    </View>
   )
 }

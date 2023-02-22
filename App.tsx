@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import TabNavigation from './src/component/tabNavigation';
 import { Provider } from 'react-redux';
-import { Store } from './src/features/home/redux/store';
+import { Store } from './src/redux/store';
 
 
 const App = () => {

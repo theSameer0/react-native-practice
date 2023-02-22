@@ -7,6 +7,7 @@ import HeaderWelcome from '../component/HeaderWelcome/HeaderWelcome';
 import DropDown from '../component/DropDown/DropDown';
 import LangCheck from '../component/LangCheck/langCheck';
 import MovieList from '../component/MovieList/movieList';
+import TheatreList from '../component/TheatreList/TheatreList';
 
 export const Home = () => {
     return (
@@ -15,6 +16,7 @@ export const Home = () => {
             <DropDown active='Banglore' />
             <LangCheck />
             <MovieList />
+            <TheatreList />
         </View>
     )
 }

@@ -1,6 +1,6 @@
 import { createStore, combineReducers , applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import langReducer from './reducer'
+import langReducer from '../features/home/redux/reducer'
 
 const rootReducer = combineReducers({langReducer})
 
