@@ -4,5 +4,6 @@ export const styles = StyleSheet.create({
     body:{
         backgroundColor: '#fff',
         paddingTop: 8,
+        paddingLeft: 10,
     }
 })

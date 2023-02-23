@@ -15,11 +15,13 @@ export const styles = StyleSheet.create({
         fontFamily: 'NotoSans-SemiBold',
         fontSize: 14,
         lineHeight: 18,
+        width: 90,
         color: '#14171A',
     },
     comment: {
         fontFamily: 'NotoSans-Regular',
         fontSize: 12,
+        width: 90,
         color: '#3C444D',
     },
 })

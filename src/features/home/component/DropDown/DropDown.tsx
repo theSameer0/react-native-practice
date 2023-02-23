@@ -7,19 +7,17 @@ import {
     Image,
 } from 'react-native'
 import { styles } from './styles'
-import FontAwesome , {parseIconFromClassName} from 'react-native-fontawesome'
+import Ionicon from 'react-native-vector-icons/Ionicons'
 
 const DropDown = (props) => {
-    const validLocationIcon = parseIconFromClassName('fa-solid fa-location-dot');
     return (
-        <View style={styles.body}>
             <TouchableOpacity
                 style = {styles.button}
             >
-                <Image source={require('../../../../assets/images/maps.png')}/>
-                <Text>Banglore</Text>
+                <Ionicon name = 'location' size={15} style = {styles.icon}/>
+                <Text style = {styles.text}>Banglore</Text>
+                <Ionicon name = 'caret-down' size={15} style = {styles.icon}/>
             </TouchableOpacity>
-        </View>
     )
 }
 

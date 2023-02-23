@@ -3,20 +3,33 @@ import {
     View,
     Text,
 } from 'react-native'
-import HeaderWelcome from '../component/HeaderWelcome/HeaderWelcome';
-import DropDown from '../component/DropDown/DropDown';
-import LangCheck from '../component/LangCheck/langCheck';
-import MovieList from '../component/MovieList/movieList';
-import TheatreList from '../component/TheatreList/TheatreList';
+import { createStackNavigator, Header } from '@react-navigation/stack'
+import { create } from 'react-test-renderer';
+import StackHome from '../component/StackHome/StackHome';
+import MovieDetail from '../screen/MovieDetail/MovieDetail';
+
+const Stack = createStackNavigator();
 
 export const Home = () => {
     return (
-        <View>
-            <HeaderWelcome name = "Sameer" />
-            <DropDown active='Banglore' />
-            <LangCheck />
-            <MovieList />
-            <TheatreList />
-        </View>
+        <Stack.Navigator
+            initialRouteName='Movies2'
+        >
+            <Stack.Screen
+                name = "Movies2"
+                component={StackHome}
+                options = {{
+                    headerShown : false
+                }}
+                />
+            <Stack.Screen
+                name = "MovieDetail"
+                component={MovieDetail}
+                options = {{
+                    headerShown : false
+                }}
+            />
+        </Stack.Navigator>
+            
     )
 }

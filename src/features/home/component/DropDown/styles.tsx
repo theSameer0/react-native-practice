@@ -4,15 +4,30 @@ import {
 
 export const styles = StyleSheet.create({
     body: {
-        backgroundColor:'#fff',
+        // backgroundColor:'#fff',
+        // // height: 50, 
+        // // borderBottomWidth: 1, /
+        // shadowColor: '#000',
+        // shadowOffset: {width: -3, height: -10},
+        // shadowOpacity: 0.4,
+        // shadowRadius: 7,
+        // elevation: 10,
+        // paddingBottom: 16,
     },
     button:{
-        flex:1,
         flexDirection: 'row',
-        height: 15,
-        borderWidth:1,
+        // borderWidth:1, 
         fontFamily: 'NotoSans-Regular',
-        fontSize: 14,
+        fontSize: 18,
         color: '#3C444D',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    text:{
+        marginLeft:7,
+        marginRight:7,
+
+    },
+    icon: {
     }
 })

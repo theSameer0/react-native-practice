@@ -8,12 +8,15 @@ import {
 import TabNavigation from './src/component/tabNavigation';
 import { Provider } from 'react-redux';
 import { Store } from './src/redux/store';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const App = () => {
   return (
     <Provider store = {Store}>
-      <TabNavigation />
+      <NavigationContainer>
+        <TabNavigation />
+      </NavigationContainer>
     </Provider>
   )
 }

@@ -30,7 +30,7 @@ const Data = [
                 image: require('../../../../assets/images/Pushpa.png'),
             }
 ]
-export default function MovieList() {
+export default function MovieList({navigation}) {
   return (
     <View style = {styles.body}>
         <CustomHeader title="Movies"/>
@@ -40,7 +40,7 @@ export default function MovieList() {
             showsHorizontalScrollIndicator = {false}
             keyExtractor = {(item)=>item.toString()}
             renderItem = {
-                ({item})=> <CustomView item = {item}/>
+                ({item})=> <CustomView item = {item} navigation={navigation}/>
             }
         />
     </View>

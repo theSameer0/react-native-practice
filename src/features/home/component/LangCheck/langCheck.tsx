@@ -13,7 +13,7 @@ import LangButton from '../../component/LangButton.tsx/LangButton'
 const Data = [
     'All',
     'Hindi',
-    'Telgu',
+    'Telugu',
     'English',
     'Tamil',
     'Bangla',
@@ -22,11 +22,6 @@ const Data = [
     'Kannada',
     'Khasi',
     'Malayalam',
-    'Japanese',
-    'Korean',
-    'French',
-    'German',
-    'Spanish',
 ]
 
 

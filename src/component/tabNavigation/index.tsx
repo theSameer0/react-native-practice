@@ -1,21 +1,17 @@
 import React from 'react';
-import {
-    View,
-    Text,
-} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import {Home} from '../../features/home/view/index'
-import { NavigationContainer } from '@react-navigation/native'
+import {Search} from '../../features/search/view/index'
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-
-function TabNavigation(props) {
+function TabNavigation(props:any) {
     return (
-        <NavigationContainer>
             <Tab.Navigator
-                initialRouteName="Movies"
+                initialRouteName='Search'
                 screenOptions = {({route})=>({
                 tabBarIcon:({focused,color}) => {
                     let iconName ;
@@ -24,7 +20,7 @@ function TabNavigation(props) {
                         iconName = 'film'
                         break;
                     case "Search":
-                        iconName = 'bicycle'
+                        iconName = 'search'
                         break;
                     case "My Bookings":
                         iconName = 'business-time'
@@ -58,7 +54,7 @@ function TabNavigation(props) {
                 />
                 <Tab.Screen 
                     name = "Search"
-                    component = {Home}
+                    component = {Search}
                     options = {{
                         headerShown: false
                     }}
@@ -78,7 +74,6 @@ function TabNavigation(props) {
                     }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
     );
 }
 
