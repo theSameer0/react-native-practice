@@ -11,7 +11,7 @@ export const Data = [
   {
     name:'Urvashi Cinema Hall',
     comment: 'Shivaji Nagar',
-    image: require('../../../../assets/images/UrvashiCinemaHall.png'),
+    image: require('~/assets/images/UrvashiCinemaHall.png'),
     timings : [
       '2:00 PM',
       '5:30 PM',
@@ -22,7 +22,7 @@ export const Data = [
   {
     name:'Inox',
     comment: '1mg Mall',
-    image: require('../../../../assets/images/Theatre.png'),
+    image: require('~/assets/images/Theatre.png'),
     timings : [
       '2:00 PM',
       '5:30 PM',
@@ -33,7 +33,7 @@ export const Data = [
   {
     name:'Cinepolis',
     comment: 'Herbal',
-    image: require('../../../../assets/images/Theatre.png'),
+    image: require('~/assets/images/Theatre.png'),
     timings : [
       '2:00 PM',
       '5:30 PM',
@@ -44,7 +44,7 @@ export const Data = [
   ,{
     name:'Matrix',
     comment: 'English',
-    image: require('../../../../assets/images/Theatre.png'),
+    image: require('~/assets/images/Theatre.png'),
     timings : [
       '2:00 PM',
       '5:30 PM',
@@ -55,7 +55,7 @@ export const Data = [
   {
     name:'Cinema Hall',
     comment: 'SLN Mall',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('~/assets/images/Theatre.png')
     ,timings : [
       '2:00 PM',
       '5:30 PM',
@@ -66,7 +66,7 @@ export const Data = [
   ,{
     name:'Cinema Hall',
     comment: 'SLN Mall',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('~/assets/images/Theatre.png')
     ,timings : [
       '2:00 PM',
       '5:30 PM',
@@ -77,7 +77,7 @@ export const Data = [
   {
     name:'Cinema Hall',
     comment: 'SLN Mall',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('~/assets/images/Theatre.png')
     ,timings : [
       '2:00 PM',
       '5:30 PM',
@@ -88,7 +88,7 @@ export const Data = [
   {
     name:'Cinema Hall',
     comment:'DLF Mall',
-    image: require('../../../../assets/images/Theatre.png'),
+    image: require('~/assets/images/Theatre.png'),
     timings : [
       '2:00 PM',
       '5:30 PM',
@@ -103,7 +103,7 @@ const getDoubleList = () => {
   var dummyData = {
     name: 'Cinema Hall',
     comment: 'DLF Mall',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('~/assets/images/Theatre.png')
   }
   const len = Data.length;
   for (var i = 0 ;i<len;i+=2){

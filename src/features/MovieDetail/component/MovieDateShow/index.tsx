@@ -39,6 +39,7 @@ export default function MovieDateShow() {
         data = {listDay()}
         keyExtractor = {(item,index) => index.toString()}
         horizontal
+        showsHorizontalScrollIndicator = {false}
         renderItem = {
             ({item,index}) => (
                 <DateShow currentData = {item} index = {index}/>
