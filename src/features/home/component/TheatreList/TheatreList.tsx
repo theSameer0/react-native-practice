@@ -7,46 +7,94 @@ import CustomHeader from '../CustomHeader/CustomHeader'
 import CustomView from '../CustomView/CustomView'
 import { styles } from './styles'
 
-const Data = [
+export const Data = [
   {
     name:'Urvashi Cinema Hall',
     comment: 'Shivaji Nagar',
-    image: require('../../../../assets/images/UrvashiCinemaHall.png')
+    image: require('../../../../assets/images/UrvashiCinemaHall.png'),
+    timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   },
   {
     name:'Inox',
     comment: '1mg Mall',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('../../../../assets/images/Theatre.png'),
+    timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   },
   {
     name:'Cinepolis',
     comment: 'Herbal',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('../../../../assets/images/Theatre.png'),
+    timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   }
   ,{
     name:'Matrix',
     comment: 'English',
-    image: require('../../../../assets/images/Theatre.png')
+    image: require('../../../../assets/images/Theatre.png'),
+    timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   },
   {
     name:'Cinema Hall',
     comment: 'SLN Mall',
     image: require('../../../../assets/images/Theatre.png')
+    ,timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   }
   ,{
     name:'Cinema Hall',
     comment: 'SLN Mall',
     image: require('../../../../assets/images/Theatre.png')
+    ,timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   },
   {
     name:'Cinema Hall',
     comment: 'SLN Mall',
     image: require('../../../../assets/images/Theatre.png')
+    ,timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   },
   {
     name:'Cinema Hall',
     comment:'DLF Mall',
     image: require('../../../../assets/images/Theatre.png'),
+    timings : [
+      '2:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:30 PM',
+    ]
   }
 ]
 

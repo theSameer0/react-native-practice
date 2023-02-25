@@ -7,11 +7,15 @@ import {
 } from 'react-native'
 import * as React from 'react'
 import {styles} from './styles'
+import { useDispatch } from 'react-redux'
+import { setCurrentMovie } from '../../redux/action'
 
 export default function CustomView(props:any) {
+  const dispatch = useDispatch();
   let {name , comment, image} = props.item
 
   const moveToMovieDetail = () => {
+      dispatch(setCurrentMovie(name))
       props.navigation.navigate('MovieDetail')
   }
   return (

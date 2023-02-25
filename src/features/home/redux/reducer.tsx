@@ -1,7 +1,9 @@
 import { SET_LANG } from "./action";
+import { SET_CURRENT_MOVIE } from "./action";
 
 let initialState = {
     lang: 'All',
+    currentMovie: '',
 }
 
 function langReducer (state=initialState, action) {
@@ -12,7 +14,11 @@ function langReducer (state=initialState, action) {
                 lang: action.payload,
             }
             break;
-    
+        case SET_CURRENT_MOVIE:
+            return {
+                ...state,
+                currentMovie: action.payload,
+            }
         default:
             return state
             break;

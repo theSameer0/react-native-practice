@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 function TabNavigation(props:any) {
     return (
             <Tab.Navigator
-                initialRouteName='Search'
+                initialRouteName='Movies'
                 screenOptions = {({route})=>({
                 tabBarIcon:({focused,color}) => {
                     let iconName ;
