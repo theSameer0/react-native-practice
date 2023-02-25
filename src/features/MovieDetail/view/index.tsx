@@ -11,6 +11,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import MovieIntro from '../component/MovieIntro/index'
 import MovieDateShow from '../component/MovieDateShow/index'
 import MovieTimingShow from '../component/MovieTimingShow/index'
+import ModalBottomSheet from '../component/ModalBottomSheet'
 
 const Data = {
     Matrix : {
@@ -73,15 +74,16 @@ const makeTheatreTimingData = () => {
       data: TimingData[i].timings
     })
   }
-  console.log(tmpData)
+  // console.log(tmpData)
   return tmpData
 }
 
-export default function MovieDetail({navigation}) {
+export default function MovieDetail({navigation}:any) {
     const dispatch = useDispatch()
     const activeState = useSelector((state:any)=>state.langReducer)
     console.log(activeState);
     const activeData = Data[activeState.currentMovie]
+
   return (
     <View style = {styles.body}>
         <Image style = {styles.image} source = {activeData.image}/>
@@ -89,6 +91,7 @@ export default function MovieDetail({navigation}) {
         <MovieIntro activeData = {activeData}/>
         <MovieDateShow />
         <MovieTimingShow makeTheatreTimingData = {makeTheatreTimingData} />
+        <ModalBottomSheet lang = {activeData.tags[0]}/>
     </View>
   )
 }

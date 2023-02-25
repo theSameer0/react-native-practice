@@ -55,6 +55,8 @@
 	<array>
 		<string>NotoSans-Regular.ttf</string>
 		<string>NotoSans-SemiBold.ttf</string>
+		<string>Inter-ExtraBold.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
 	</array>
 </dict>
 </plist>
