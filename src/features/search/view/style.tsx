@@ -5,6 +5,7 @@ import {
 export const styles = StyleSheet.create({
     body: {
         margin:0,
+        backgroundColor: '#fff',
     },
     header: {
         shadowOffset:{

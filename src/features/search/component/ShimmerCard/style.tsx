@@ -4,22 +4,33 @@ import {
 
 export const styles = StyleSheet.create({
     body: {
-        flex: 1,
-        flexDirection:'row',
+        // backgroundColor : '#e9ecf0'
+        backgroundColor: '#000',
+        marginTop:10,
+        paddingTop: 10,
+        flexDirection: 'row',
     }
     ,image:{
-        flex:1,
+        width:100,
+        height:100,
+        margin: 10,
+        borderRadius: 14,
     }
     ,content:{
-        flex:2,
+        width: 300,
+        height: 100,
+        marginTop: 10,
+        flexDirection: 'column',
+        borderRadius: 14,
     }
     ,title:{
-
-    }
-    ,subTitle:{
-
+        width: 250,
+        height: 10,
+        marginBottom: 10,
     }
     ,comment:{
-
+        width: 100,
+        height: 10,
+        marginBottom : 10,
     }
 })

@@ -1,6 +1,6 @@
 import { 
-    Text, 
-    View 
+  Text, 
+  View 
 } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
@@ -14,13 +14,13 @@ import { styles } from './style'
 const Tab = createMaterialTopTabNavigator();
 
 export function Search() {
-  return (
-    <View style = {styles.body}>
-      {/* <View style = {styles.header}> */}
-        <SearchBar />
-        <OptionBar />
-      {/* </View> */}
-        <SearchList />
-    </View>
-  )
+return (
+  <View style = {styles.body}>
+    {/* <View style = {styles.header}> */}
+      <SearchBar />
+      <OptionBar />
+    {/* </View> */}
+      <SearchList />
+  </View>
+)
 }

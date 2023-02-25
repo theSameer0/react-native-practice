@@ -6,7 +6,7 @@ import {
 import { createStackNavigator, Header } from '@react-navigation/stack'
 import { create } from 'react-test-renderer';
 import StackHome from '../component/StackHome/StackHome';
-import MovieDetail from '../screen/MovieDetail/MovieDetail';
+import MovieDetail from '../../MovieDetail/view/index';
 
 const Stack = createStackNavigator();
 

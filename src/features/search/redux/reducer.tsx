@@ -1,10 +1,12 @@
-import { SET_CURRENT_FEATURE, SET_CURRENT_KEYWORD } from "./action";
+import { SET_CURRENT_FEATURE, SET_CURRENT_KEYWORD, SET_SEARCH_RELOAD } from "./action";
 
 let initialState = {
     feature: 'Movies',
+    keyword: '',
+    searchRefresh : false,
 }
 
-function featureReducer (state=initialState, action:any) {
+function searchReducer (state=initialState, action:any) {
     switch (action.type) {
         case SET_CURRENT_FEATURE:
             return {
@@ -17,10 +19,15 @@ function featureReducer (state=initialState, action:any) {
                 ...state,
                 keyword : action.payload,
             }
+        case SET_SEARCH_RELOAD:
+            return {
+                ...state,
+                searchRefresh : action.payload,
+            }
         default:
             return state
             break;
     }
 }
 
-export default featureReducer;
+export default searchReducer;
