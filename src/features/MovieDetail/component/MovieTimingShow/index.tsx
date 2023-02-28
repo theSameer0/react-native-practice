@@ -8,7 +8,8 @@ import React from 'react'
 import { styles } from './style'
 import TimeBoxShow from '../TimeBoxShow'
 
-export default function MovieTimingShow ({makeTheatreTimingData}:any) {
+export default function MovieTimingShow ({makeTheatreTimingData,keys}:any) {
+  // console.log(keys)
   return (
     <FlatList 
         data={makeTheatreTimingData()}
@@ -18,7 +19,7 @@ export default function MovieTimingShow ({makeTheatreTimingData}:any) {
         // contentContainerStyle = {{paddingHorizontal : 10}
         renderItem = {
           ({item})=>(
-            <TimeBoxShow item = {item}/>
+            <TimeBoxShow item = {item} keys = {keys}/>
           )
         }
       />

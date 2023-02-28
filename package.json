@@ -41,10 +41,12 @@
     "react-native-skeleton-placeholder": "^5.2.4",
     "react-native-svg": "^13.8.0",
     "react-native-tab-view": "^3.5.0",
+    "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

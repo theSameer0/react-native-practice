@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         marginRight: 10,
         paddingBottom: 0,
         fontFamily: 'Inter-ExtraBold',
-        fontWeight: 800,
+        fontWeight: '800',
         fontSize: 14,
         color: '#000',
     },

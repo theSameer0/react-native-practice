@@ -12,11 +12,11 @@ import { setCurrentMovie } from '../../redux/action'
 
 export default function CustomView(props:any) {
   const dispatch = useDispatch();
-  let {name , comment, image} = props.item
+  let {name , image} = props.item
 
   const moveToMovieDetail = () => {
       dispatch(setCurrentMovie(name))
-      props.navigation.navigate('MovieDetail')
+      props.navigation.navigate('MovieDetail',{key:props.item.key})
   }
   return (
     <Pressable
@@ -35,7 +35,7 @@ export default function CustomView(props:any) {
             numberOfLines={1}
           >
             {/* Hello */}
-            {comment}
+            {props.item.language?props.item.language : props.item.comment}
           </Text>
         </View>
     </Pressable>

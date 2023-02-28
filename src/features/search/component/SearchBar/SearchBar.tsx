@@ -16,7 +16,7 @@ export default function SearchBar () {
     const activeKeyword = useSelector(state=>state.featureReducer)
     const updateKeyword = (value:any) => {
         dispatch(setCurrentKeyword(value))
-        console.log(activeKeyword);
+        // console.log(activeKeyword);
     }
 
     return (

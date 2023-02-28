@@ -18,4 +18,5 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         // width:50,
     },
+    
 })

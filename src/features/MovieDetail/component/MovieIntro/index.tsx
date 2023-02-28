@@ -5,8 +5,9 @@ import Ionicon from 'react-native-vector-icons/Ionicons'
 
 export default function MovieIntro(props: any) {
     let activeData = props.activeData
+    if(!props)return null
     return (
-        <View style = {styles.content}>
+        <View style = {[styles.content,props.setStyle]}>
             <Text style = {styles.title}>{activeData.name}</Text>
             <View style = {styles.header}>
                 <Text style = {styles.text}>
@@ -17,11 +18,7 @@ export default function MovieIntro(props: any) {
                 <Text style = {styles.text}> {activeData.tags[3]} .</Text>
                 <Text style = {styles.text}> {activeData.tags[4]}
                 </Text>
-            </View>
-            <Text style = {styles.comment}>
-                {activeData.comment}
-            </Text>
-            <Ionicon style = {styles.caretIcon} name = 'caret-down'/>
+            </View>       
         </View>
   )
 }

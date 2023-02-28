@@ -4,23 +4,7 @@ import {
 
 
 export const styles = StyleSheet.create({
-    modal: {
-        justifyContent: "flex-end",
-        margin: 0,
-    },
-    modalContent: {
-        backgroundColor: "#fff",
-        // paddingHorizontal: 12,
-        borderTopRightRadius: 30,
-        borderTopLeftRadius: 30,
-        minHeight: '50%',
-        maxHeight: '90%',
-        paddingBottom: 0,
-        // borderWidth:1,
-    },
-    
     theatreHall: {
-        
     },
     stage: {
         justifyContent: 'center',
@@ -42,12 +26,10 @@ export const styles = StyleSheet.create({
     seat: {
         flexDirection: 'row',
     },
-    true:{
+    cell:{
         width: 20,
         height: 20,
-        backgroundColor: '#eaf7f2',
         borderWidth: 1,
-        borderColor: '#45b67b',
         margin: 4,
         marginBottom: 8,
         borderRadius: 5,
@@ -56,22 +38,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
     },
-    false: {
-        width: 20,
-        height: 20,
-        backgroundColor: '#f8f9fa',
-        borderWidth: 1,
-        borderColor: '#dfe3e6',
-        margin: 4,
-        borderRadius: 5,
-        marginBottom: 8,
-    },
     visible: {
         backgroundColor: '#fff',
         width: 20,
         height: 20,
     },
-   
 });
 
 

@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import {Home} from '../../features/home/view/index'
 import {Search} from '../../features/search/view/index'
 import { createStackNavigator } from '@react-navigation/stack';
+import MyBookings from '~/features/MyBookings/view/index';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -61,7 +62,7 @@ function TabNavigation(props:any) {
                 />
                 <Tab.Screen 
                     name = "My Bookings"
-                    component = {Home}
+                    component = {MyBookings}
                     options = {{
                         headerShown: false
                     }}

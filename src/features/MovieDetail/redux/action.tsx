@@ -24,11 +24,9 @@ export const setBookingMovieDetail = ( obj : any) => {
     }
 }
 
-export const setSeatStatus = (row:any,col:any,val:boolean) => {
+export const setSeatStatus = (newSeat:any) => {
     return {
         type : SET_SEAT_STATUS,
-        payload : val,
-        row : row,
-        col : col,
+        payload : newSeat
     }
 }

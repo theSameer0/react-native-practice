@@ -9,10 +9,9 @@ export const styles = StyleSheet.create({
         // elevation: 20,
         marginBottom:4,
         shadowColor: '#000',
-        borderBottomWidth:1,
-        shadowOffset: {width: -3, height: 5},
-        shadowOpacity: 0.4,
-        shadowRadius: 3,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.7,
+        shadowRadius: 6,
     },
     text: {
         fontSize: 21,

@@ -4,7 +4,7 @@ let initialState = {
     bookingDate: 0,
     isModalVisible: false,
     bookingMovieDetail : [
-        '','',''
+        '','','',
     ],
     seat: [
         [false,false,false,false,false,false,false,false,false,false,false,false,],
@@ -24,6 +24,11 @@ let initialState = {
 
 function movieReducer (state=initialState, action) {
     switch (action.type) {
+        case SET_SEAT_STATUS: 
+            return {
+                ...state,
+                seat : action.payload
+            }
         case SET_BOOKING_DATE:
             return {
                 ...state,
@@ -39,15 +44,6 @@ function movieReducer (state=initialState, action) {
             return {
                 ...state,
                 bookingMovieDetail : action.payload,
-            }
-        case SET_SEAT_STATUS: 
-            return {
-                ...state,
-                seat : Object.assign([...[state.seat]],{
-                    [action.row]: Object.assign([...[[state.seat]][action.row]],{
-                        [action.col]: action.payload
-                    })
-                })
             }
         default:
             return state
