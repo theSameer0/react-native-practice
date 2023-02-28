@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
         borderRadius: 3,
     },
     seat: {
-        flexDirection: 'row',
+        flexDirection: 'column',
     },
     cell:{
         width: 20,
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     },
     col:{
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'row',
     },
     visible: {
         backgroundColor: '#fff',

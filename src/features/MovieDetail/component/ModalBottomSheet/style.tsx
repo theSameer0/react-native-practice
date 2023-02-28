@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     },
     col:{
         flex: 1,
-        flexDirection: 'column',
+        // flexDirection: 'column',
     },
     false: {
         width: 20,

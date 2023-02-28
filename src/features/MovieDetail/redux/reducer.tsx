@@ -1,4 +1,4 @@
-import { SET_BOOKING_DATE , SET_BOOKING_MOVIE_DETAIL, SET_MODAL_VISIBLE, SET_SEAT_STATUS} from "./action";
+import { SET_BOOKING_DATE , SET_BOOKING_MOVIE_DETAIL, SET_MODAL_VISIBLE, SET_SEAT_STATUS ,SET_TMP_SEAT} from "./action";
 
 let initialState = {
     bookingDate: 0,
@@ -19,11 +19,31 @@ let initialState = {
         [false,false,false,false,false,false,false,false,false,false,false,false,],
         [false,false,false,false,false,false,false,false,false,false,false,false,],
         [false,false,false,false,false,false,false,false,false,false,false,false,],
-    ]
+    ],
+    tmpSeat: [
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+        [false,false,false,false,false,false,false,false,false,false,false,false,],
+    ],
+    // seatsJSX : [],
 }
 
 function movieReducer (state=initialState, action) {
     switch (action.type) {
+        case SET_TMP_SEAT:
+            return {
+                ...state,
+                tmpSeat : action.payload,
+            }
         case SET_SEAT_STATUS: 
             return {
                 ...state,

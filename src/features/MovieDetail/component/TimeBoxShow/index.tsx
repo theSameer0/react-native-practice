@@ -26,7 +26,8 @@ export default function TimeBoxShow({item,keys}:any) {
             keys,
         ]
     //    // console.log(bookingData)
-        dispatch(setBookingMovieDetail(bookingData))
+        let compareVar = bookingData
+        dispatch(setBookingMovieDetail(compareVar))
     };
     
     // console.log(keys)

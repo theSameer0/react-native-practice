@@ -2,6 +2,7 @@ export const SET_BOOKING_DATE = 'SET_BOOKING_DATE'
 export const SET_MODAL_VISIBLE = 'SET_MODAL_VISIBLE'
 export const SET_BOOKING_MOVIE_DETAIL = 'SET_BOOKING_MOVIE_DETAIL'
 export const SET_SEAT_STATUS = 'SET_SEAT_STATUS'
+export const SET_TMP_SEAT = 'SET_TMP_SEAT'
 
 export const setBookingDate = (bookingDate : any) => {
     return {
@@ -28,5 +29,12 @@ export const setSeatStatus = (newSeat:any) => {
     return {
         type : SET_SEAT_STATUS,
         payload : newSeat
+    }
+}
+
+export const setTmpSeat = (tmpSeat:any) => {
+    return {
+        type : SET_TMP_SEAT,
+        payload : tmpSeat,
     }
 }

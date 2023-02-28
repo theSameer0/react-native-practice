@@ -10,78 +10,93 @@ function intToChar(int:number) {
     return String.fromCharCode(base + int)
 }
 
+function Seats(){
+    const CreatSeat = ({ id }: any) => {
+    const dispatch = useDispatch();
+    const activeMovie = useSelector((store: any) => store.movieReducer);
+    // const tmpSeat = activeMovie.tmpSeat;
+    // let newSeat = tmpSeat.slice()
+    const mainSeat = activeMovie.seat;
+    let newSeat = mainSeat
+    const handleSeatSelection = (row: any, col: any) => {
+        if(!mainSeat[row][col]){
+            newSeat[row][col] = newSeat[row][col] ? false : true
+            dispatch(setSeatStatus(newSeat))
+        }
+    }
+    let [row, col] = id.split(',')
+    row = parseInt(row)
+    col = parseInt(col)
+    // console.log(row, col)
+    return (
+        < Pressable onPress={() => handleSeatSelection(row, col)}>
+            <View style={[styles.screen, {
+                width: 20,
+                height: 20,
+                marginLeft: 5,
+                marginRight: 5,
+                marginTop: 16,
+                borderRadius: 4
+            },
+            (newSeat[row][col] ? {
+                backgroundColor: '#EBF7F1',
+                borderColor: '#3BB273',
+            } :
+            {
+                backgroundColor: '#F7F9FA',
+                borderColor: '#D7DCE0',
+            }
+            )
+        ]} />
+        </Pressable >
+        )
+    }
+    const seatRow = [];
+    for (let i = 0; i < 11; i++) {
+        const seatCol = []
+        for (let j = 0; j < 11; j++) {
+            if (j == 5) {
+                seatCol.push(
+                    <View style={[styles.screen,
+                        {
+                            width: 20,
+                            height: 20,
+                            marginLeft: 10,
+                            marginTop: 16,
+                            borderRadius: 4,
+                            backgroundColor: '#fff',
+                            borderWidth: 0
+                        }]} />
+                        )
+                    }
+            else {
+                var k = j > 5 ? j - 1 : j
+                let setId = i.toString() + ',' + k.toString() + ',';
+                seatCol.push(
+                    <CreatSeat id={setId} />
+                    )
+                }
+            }
+            seatRow.push(<View style={{ flexDirection: 'row' }}>{seatCol}</View>)
+        }
+    return (seatRow)
+}
 
 export default function TheatreHall() {
-    const newSeat = useSelector((state:any)=> state.movieReducer.seat)
+    const newSeat = useSelector((store:any)=> store.movieReducer.seat)
     const dispatch = useDispatch();
-    
-    const updateSeat = (row:any,col:any) => {
-        console.log('before',newSeat[row][col])
-        newSeat[row][col] = newSeat[row][col] ? false: true
-        console.log('after',newSeat[row][col])
-        dispatch(setSeatStatus(newSeat))
-    }
-    
-    const Seats = () => {
-        var seats = []
-        const Square = (props:any) => {
-            let [row,col] = props.id.split(',')
-            row = parseInt(row)
-            col = parseInt(col)        
-            let val = newSeat[row][col]
-            return (
-                <Pressable key = {props.keyExtractor+'_'} id = {props.keyExtractor+'_'} onPress= {()=>updateSeat(row,col)}>
-                    <View key={props.keyExtractor+')'} id = {props.keyExtractor+')'} style = {[
-                        styles.cell,
-                        (val?
-                            {
-                                backgroundColor: '#eaf7f2',
-                                borderColor: '#47b67b',
-                            }
-                            :
-                            {
-                                backgroundColor: '#F7F9FA',
-                                borderColor: '#D7DCE0',
-                            }
-                            ),
-                        ]} 
-                        />
-                </Pressable>
-            )
-        }
-        for (var i = 0;i<13;i++){
-            var rows = []
-            var cols = []
-            if(i===6){
-                for (var j = 0;j<12;j++){
-                    var setId = i.toString() + ',' + j.toString();
-                    cols.push(<View id = {setId} key = {setId} style = {styles.visible}></View>)
-                }
-                rows.push(<View style = {styles.col}>{cols}</View>)
-            }else {
-                for (var j = 0 ; j<12;j++){
-                    var k = i>6?i-1:i
-                    var setId = k.toString() + ',' + j.toString();
-                    console.log(setId)
-                    cols.push(<Square keyExtractor = {setId} id = {setId}/>)
-                }
-                rows.push(<View id = {i.toString()+'row'} key = {i.toString()+'row'} style = {styles.col}>{cols}</View>)
-            }
-            seats.push(rows)
-        }
-    
-        return (seats)
-        
-    }
-        
-        return (
+
+
+    return (
         <View style = {styles.theatreHall}>
-            <View style = {styles.stage}>
-                <Text style = {styles.screenText}>SCREEN THIS WAY</Text>
-                <View style = {styles.screen}></View>
+            <View style={styles.stage}>
+                <Text style={styles.screenText}>
+                    SCREEN THIS WAY
+                </Text>
+                <View style={styles.screen} />
             </View>
-            <View style = {styles.seat}>
-                <Seats />
+            <View style={[{ alignSelf: 'center', },styles.seat]}>
+                <Seats/>
             </View>
         </View>
     )

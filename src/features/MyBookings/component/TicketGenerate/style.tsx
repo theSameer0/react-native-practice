@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
         width: '100%',
+        height: '30%',
     },
     intro:{
         borderBottomWidth: 2,

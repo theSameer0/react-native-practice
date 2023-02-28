@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     },
     
     image:{
+        height: '30%',
         width: '100%',
     },
     icon:{

@@ -4,13 +4,14 @@ import { styles } from './style'
 import { useDispatch,useSelector } from 'react-redux'
 import { setSuccessVisible } from '../redux/action'
 import TicketGenerate from '../component/TicketGenerate/index'
+import { ScrollView } from 'react-native-gesture-handler'
 
 // const ticketSuccess = () => {
   
 // }
 
 
-export default function MyBookings({navigation}:any) {
+export default function MyBookings({navigation,route}:any) {
   const dispatch = useDispatch();
   useEffect(() => {
     setVisibleTrue()
@@ -35,10 +36,10 @@ export default function MyBookings({navigation}:any) {
           <Image style = {styles.success} source = {require('~/assets/images/ticketSuccess.png')} />
         </Pressable>
       </Modal>
-      <TicketGenerate navigation = {navigation}/>
-      <View style = {styles.image}>
-        <Image source={require('~/assets/images/qrCode.png')}/>
-      </View>
+        <TicketGenerate navigation = {navigation} route = {route}/>
+        <View style = {styles.image}>
+          <Image source={require('~/assets/images/qrCode.png')}/>
+        </View>
     </View>
   )
 }

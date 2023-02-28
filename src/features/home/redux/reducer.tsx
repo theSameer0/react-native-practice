@@ -88,7 +88,7 @@ let initialState = {
             name: '83',
             language: 'Hindi',
             image: require('~/assets/images/83.png'),
-            headImage : require('~/assets/images/MatrixHeader.png'),
+            headImage : require('~/assets/images/83.png'),
             tags: [
             'Hindi',
             'U/A',
@@ -103,7 +103,7 @@ let initialState = {
             name: 'Saamanyudu',
             language: 'Telugu',
             image: require('~/assets/images/Saamanyudu.png'),
-            headImage : require('~/assets/images/MatrixHeader.png'),
+            headImage : require('~/assets/images/Saamanyudu.png'),
             tags: [
             'Telugu',
             'U/A',
@@ -118,7 +118,7 @@ let initialState = {
             name: 'Pushpa',
             language: 'Telugu',
             image: require('~/assets/images/Pushpa.png'),
-            headImage : require('~/assets/images/MatrixHeader.png'),
+            headImage : require('~/assets/images/Pushpa.png'),
             tags: [
               'Telugu',
               'U/A',
