@@ -6,12 +6,12 @@ import LangCheck from '../LangCheck/langCheck';
 import MovieList from '../MovieList/movieList';
 import TheatreList from '../TheatreList/TheatreList';
 
-export default function StackHome({navigation}) {
+export default function StackHome({navigation,route}) {
   return (
     <View>
         <HeaderWelcome name = "Sameer" />
-        <LangCheck />
-        <MovieList navigation={navigation}/>
+        <LangCheck navigation = {navigation} />
+        <MovieList navigation={navigation} route = {route}/>
         <TheatreList />
     </View>
   )

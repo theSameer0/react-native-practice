@@ -30,8 +30,8 @@ export default function TheatreHall() {
             col = parseInt(col)        
             let val = newSeat[row][col]
             return (
-                <Pressable key = {props.keyExtractor} id = {props.keyExtractor} onPress= {()=>updateSeat(row,col)}>
-                    <View style = {[
+                <Pressable key = {props.keyExtractor+'_'} id = {props.keyExtractor+'_'} onPress= {()=>updateSeat(row,col)}>
+                    <View key={props.keyExtractor+')'} id = {props.keyExtractor+')'} style = {[
                         styles.cell,
                         (val?
                             {

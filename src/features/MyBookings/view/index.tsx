@@ -22,6 +22,10 @@ export default function MyBookings({navigation}:any) {
   const moveToTicket = () => {
     dispatch(setSuccessVisible(false))
   }
+  const Data = useSelector((state:any)=>state.movieReducer.bookingMovieDetail)
+  if(Data[0]===''){
+    return (null)
+  }
   return (
     <View>
       <Modal
@@ -32,6 +36,9 @@ export default function MyBookings({navigation}:any) {
         </Pressable>
       </Modal>
       <TicketGenerate navigation = {navigation}/>
+      <View style = {styles.image}>
+        <Image source={require('~/assets/images/qrCode.png')}/>
+      </View>
     </View>
   )
 }

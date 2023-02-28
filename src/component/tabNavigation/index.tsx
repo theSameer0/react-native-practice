@@ -34,7 +34,7 @@ function TabNavigation(props:any) {
                         break;
                     }
                     return (
-                    <Icon name = {iconName} color = {focused?'#8e24aa':''} size={18}/>
+                    <Icon name = {iconName} color = {focused?'#8e24aa':'grey'} size={18}/>
                     )
                 }
                 })}

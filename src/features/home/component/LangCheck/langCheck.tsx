@@ -25,7 +25,8 @@ const Data = [
 ]
 
 
-const LangCheck = () => {
+const LangCheck = ({navigation}:any) => {
+    console.log(navigation)
     return (
         <FlatList
             style = {styles.body}
@@ -35,7 +36,7 @@ const LangCheck = () => {
             keyExtractor = {(item,index) => index.toString()}
             renderItem = {
                 ({item})=>(
-                    <LangButton lang = {item} />
+                    <LangButton navigation = {navigation} lang = {item} />
                 )
             }
         />

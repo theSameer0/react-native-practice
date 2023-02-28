@@ -3,7 +3,7 @@ import {
     View,
     FlatList,
 } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import CustomView from '../CustomView/CustomView'
 import CustomHeader from '../CustomHeader/CustomHeader'
 import {styles} from './style'
@@ -30,16 +30,18 @@ import { useSelector } from 'react-redux'
 //                 image: require('../../../../assets/images/Pushpa.png'),
 //             }
 // ]
-export default function MovieList({navigation}) {
-    const Data = useSelector((state:any)=>state.langReducer.Data)
-  return (
+export default function MovieList({navigation,route}) {
+    const Data = useSelector((state:any)=>state.langReducer.movieData)
+    // let Data = route.params ? route.params.Data : newData
+    // console.log("hello")
+    return (
     <View style = {styles.body}>
         <CustomHeader title="Movies"/>
         <FlatList 
             data={Data}
             horizontal
             showsHorizontalScrollIndicator = {false}
-            keyExtractor = {(item)=>item.toString()}
+            keyExtractor = {(item,index)=>index.toString()}
             renderItem = {
                 ({item})=> <CustomView item = {item} navigation={navigation}/>
             }

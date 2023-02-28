@@ -1,9 +1,72 @@
 import { SET_LANG } from "./action";
 import { SET_CURRENT_MOVIE } from "./action";
+import { SET_CURRENT_MOVIE_DATA } from "./action";
 
 let initialState = {
     lang: 'All',
     currentMovie: '',
+    movieData: [{
+          key: 0,
+          name:'Matrix',
+          language: 'English',
+          image: require('~/assets/images/Matrix.png'),
+          headImage : require('~/assets/images/MatrixHeader.png'),
+          tags: [
+              'English',
+              'U/A',
+              '2021',
+              'Si-fi/Action',
+              '2h 28m'
+          ],
+          comment: 'To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\'s learned anything, it\'s that choice, while an illusion...',
+      },
+      {
+          key: 1,
+          name: '83',
+          language: 'Hindi',
+          image: require('~/assets/images/83.png'),
+          headImage : require('~/assets/images/MatrixHeader.png'),
+          tags: [
+          'Hindi',
+          'U/A',
+          '2021',
+          'Si-fi/Action',
+          '2h 28m'
+          ],
+          comment: 'To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\'s learned anything, it\'s that choice, while an illusion...',
+      },
+      {
+          key: 2,
+          name: 'Saamanyudu',
+          language: 'Telugu',
+          image: require('~/assets/images/Saamanyudu.png'),
+          headImage : require('~/assets/images/MatrixHeader.png'),
+          tags: [
+          'Telugu',
+          'U/A',
+          '2021',
+          'Si-fi/Action',
+          '2h 28m'
+          ],
+          comment: 'To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\'s learned anything, it\'s that choice, while an illusion...',
+      },
+      {
+          key: 3,
+          name: 'Pushpa',
+          language: 'Telugu',
+          image: require('~/assets/images/Pushpa.png'),
+          headImage : require('~/assets/images/MatrixHeader.png'),
+          tags: [
+            'Telugu',
+            'U/A',
+            '2021',
+            'Si-fi/Action',
+            '2h 28m'
+          ],
+          comment: 'To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\'s learned anything, it\'s that choice, while an illusion...',
+      
+      }
+    ],
     Data: [
         {
             key: 0,
@@ -27,7 +90,7 @@ let initialState = {
             image: require('~/assets/images/83.png'),
             headImage : require('~/assets/images/MatrixHeader.png'),
             tags: [
-            'Telugu',
+            'Hindi',
             'U/A',
             '2021',
             'Si-fi/Action',
@@ -53,7 +116,7 @@ let initialState = {
         {
             key: 3,
             name: 'Pushpa',
-            lanugage: 'Telugu',
+            language: 'Telugu',
             image: require('~/assets/images/Pushpa.png'),
             headImage : require('~/assets/images/MatrixHeader.png'),
             tags: [
@@ -171,6 +234,11 @@ function langReducer (state=initialState, action) {
             return {
                 ...state,
                 currentMovie: action.payload,
+            }
+        case SET_CURRENT_MOVIE_DATA: 
+            return {
+              ...state,
+              movieData : action.payload,
             }
         default:
             return state
