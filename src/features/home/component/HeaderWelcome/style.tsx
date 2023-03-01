@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     body:{
         backgroundColor: '#fff',
         alignItems: 'flex-start',
-        padding: 10,
+        padding: 20,
         // elevation: 20,
         marginBottom:4,
         shadowColor: '#000',

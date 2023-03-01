@@ -3,6 +3,7 @@ import React from 'react'
 import {styles} from './style'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
+
 export default function CustomHeader(props:any) {
   return (
     <View style = {styles.header}>

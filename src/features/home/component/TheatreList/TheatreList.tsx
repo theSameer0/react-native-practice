@@ -127,7 +127,6 @@ export default function TheaterList() {
   return (
     <View style = { styles.body }>
         <CustomHeader title = "Theatres"/>
-        <ScrollView>
           <FlatList 
             data = {getDoubleList()}
             horizontal
@@ -142,7 +141,6 @@ export default function TheaterList() {
               </View>
             }
           />
-        </ScrollView>
     </View>
   )
 }

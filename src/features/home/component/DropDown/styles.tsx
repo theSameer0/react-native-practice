@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         // borderWidth:1, 
         fontFamily: 'NotoSans-Regular',
-        fontSize: 18,
+        fontSize: 21,
         color: '#3C444D',
         alignItems: 'center',
         justifyContent: 'flex-start',

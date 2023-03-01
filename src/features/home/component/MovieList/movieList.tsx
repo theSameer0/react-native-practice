@@ -30,10 +30,8 @@ import { useSelector } from 'react-redux'
 //                 image: require('../../../../assets/images/Pushpa.png'),
 //             }
 // ]
-export default function MovieList({navigation,route}) {
-    const Data = useSelector((state:any)=>state.langReducer.movieData)
-    // let Data = route.params ? route.params.Data : newData
-    // console.log("hello")
+export default function MovieList({navigation,route}:any) {
+    const Data = useSelector((state:any)=>state.langReducer.Data)
     return (
     <View style = {styles.body}>
         <CustomHeader title="Movies"/>

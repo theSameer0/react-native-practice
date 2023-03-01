@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     View,
     Text,
@@ -7,8 +7,16 @@ import { createStackNavigator, Header } from '@react-navigation/stack'
 import { create } from 'react-test-renderer';
 import StackHome from '../component/StackHome/StackHome';
 import MovieDetail from '../../MovieDetail/view/index';
+import App from '../redux/services';
+import { useSelector } from 'react-redux';
+
+// useEffect(() => {
+//     movieDataUpdate()
+//   }, [])
+  
 
 const Stack = createStackNavigator();
+App()
 
 export const Home = () => {
     return (

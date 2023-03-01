@@ -18,6 +18,7 @@ export default function CustomView(props:any) {
       dispatch(setCurrentMovie(name))
       props.navigation.navigate('MovieDetail',{key:props.item.key})
   }
+  // console.log(typeof(['hey','ae','adf']))
   return (
     <Pressable
       onPress={moveToMovieDetail}
@@ -34,7 +35,6 @@ export default function CustomView(props:any) {
             style = {styles.comment}
             numberOfLines={1}
           >
-            {/* Hello */}
             {props.item.language?props.item.language : props.item.comment}
           </Text>
         </View>

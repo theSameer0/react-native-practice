@@ -5,10 +5,11 @@ import DropDown from '../DropDown/DropDown';
 import LangCheck from '../LangCheck/langCheck';
 import MovieList from '../MovieList/movieList';
 import TheatreList from '../TheatreList/TheatreList';
+import { styles } from './style'
 
-export default function StackHome({navigation,route}) {
+export default function StackHome({navigation,route}:any) {
   return (
-    <View>
+    <View style = {styles.body}>
         <HeaderWelcome name = "Sameer" />
         <LangCheck navigation = {navigation} />
         <MovieList navigation={navigation} route = {route}/>

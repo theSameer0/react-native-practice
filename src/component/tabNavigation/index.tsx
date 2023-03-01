@@ -14,36 +14,33 @@ function TabNavigation(props:any) {
             <Tab.Navigator
                 initialRouteName='Movies'
                 screenOptions = {({route})=>({
-                tabBarIcon:({focused,color}) => {
-                    let iconName ;
-                    switch (route.name) {
-                    case "Movies":
-                        iconName = 'film'
-                        break;
-                    case "Search":
-                        iconName = 'search'
-                        break;
-                    case "My Bookings":
-                        iconName = 'business-time'
-                        break;
-                    case "Account":
-                        iconName='user'
-                        break;
-                    
-                    default:
-                        break;
-                    }
-                    return (
-                    <Icon name = {iconName} color = {focused?'#8e24aa':'grey'} size={18}/>
-                    )
-                }
-                })}
-                tabBarOptions = {{
-                    activeTintColor : '#8e24aa',
-                    inactiveTintColor : '#555',
+                    tabBarActiveTintColor : '#8e24aa',
+                    tabBarInactiveTintColor : '#555',
                     headerShown : false,
-                }}
-                
+                    tabBarIcon:({focused,color}) => {
+                        let iconName ;
+                        switch (route.name) {
+                        case "Movies":
+                            iconName = 'film'
+                            break;
+                        case "Search":
+                            iconName = 'search'
+                            break;
+                        case "My Bookings":
+                            iconName = 'business-time'
+                            break;
+                        case "Account":
+                            iconName='user'
+                            break;
+                        
+                        default:
+                            break;
+                        }
+                        return (
+                        <Icon name = {iconName} color = {focused?'#8e24aa':'grey'} size={18}/>
+                        )
+                    },
+                })}
             >
                 
                 <Tab.Screen 
