@@ -24,7 +24,7 @@ function langReducer (state=initialState, action:any) {
         case SET_CURRENT_MOVIE_DATA:
           return {
             ...state,
-            currentMovie: action.payload,
+            currentMovieData: action.payload,
           }
         case SET_THEATRE_DATA:
             return {

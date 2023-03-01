@@ -31,7 +31,7 @@ import { useSelector } from 'react-redux'
 //             }
 // ]
 export default function MovieList({navigation,route}:any) {
-    const Data = useSelector((state:any)=>state.langReducer.Data)
+    const Data = useSelector((state:any)=>state.langReducer.currentMovieData)
     return (
     <View style = {styles.body}>
         <CustomHeader title="Movies"/>

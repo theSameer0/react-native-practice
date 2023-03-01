@@ -1,6 +1,6 @@
 import { MovieData , TheatreData } from "./interface";
 import { useDispatch } from "react-redux";
-import { setMovieData , setTheatreData  } from "./action";
+import { setCurrentMovieData, setMovieData , setTheatreData  } from "./action";
 
 
 function App() {
@@ -85,6 +85,7 @@ function App() {
         }
         // console.log(MovieDataList)
         dispatch(setMovieData(MovieDataList))
+        dispatch(setCurrentMovieData(MovieDataList))
     }
 
     function theatreDataUpdate(){
