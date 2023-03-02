@@ -1,38 +1,90 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"log"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Movie struct {
-	Name     string `json:"Name"`
-	Language string `json:"Language"`
-	Image    string `json:"Image"`
+	Key       int      `json:"key"`
+	Name      string   `json:"name"`
+	Language  string   `json:"language"`
+	Image     string   `json:"image"`
+	HeadImage string   `json:"headImage"`
+	Tags      []string `json:"tags"`
+	Comment   string   `json:"comment"`
 }
 
-type movieList []Movie
-
-func allMovies(w http.ResponseWriter, r *http.Request) {
-	movies := movieList{
-		Movie{Name: "Matrix", Language: "English", Image: `require(~/src/asset/image/Matrix.png)`},
-	}
-	fmt.Println("EndPoint Hit : the movieList")
-	json.NewEncoder(w).Encode(movies)
+var movieList = []Movie{
+	{
+		Key:       0,
+		Name:      "Matrix",
+		Language:  "English",
+		Image:     "require('~/assets/images/Matrix.png')",
+		HeadImage: "require('~/assets/images/MatrixHeader.png')",
+		Tags: []string{
+			"English",
+			"U/A",
+			"2021",
+			"Si-fi/Action",
+			"2h 28m",
+		},
+		Comment: "To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\"s learned anything, it\"s that choice, while an illusion...",
+	},
+	// {
+	// 	Key:       1,
+	// 	Name:      "83",
+	// 	Language:  "Hindi",
+	// 	Image:     "require('~/assets/images/83.png')",
+	// 	HeadImage: "require('~/assets/images/83.png')",
+	// 	Tags: []string{
+	// 		"Hindi",
+	// 		"U/A",
+	// 		"2021",
+	// 		"Si-fi/Action",
+	// 		"2h 28m",
+	// 	},
+	// 	Comment: "To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\"s learned anything, it\"s that choice, while an illusion...",
+	// },
+	// {
+	// 	Key:       2,
+	// 	Name:      "Saamanyudu",
+	// 	Language:  "Telugu",
+	// 	Image:     "require('~/assets/images/Saamanyudu.png')",
+	// 	HeadImage: "require('~/assets/images/Saamanyudu.png')",
+	// 	Tags: []string{
+	// 		"Telugu",
+	// 		"U/A",
+	// 		"2021",
+	// 		"Si-fi/Action",
+	// 		"2h 28m",
+	// 	},
+	// 	Comment: "To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\"s learned anything, it\"s that choice, while an illusion...",
+	// },
+	// {
+	// 	Key:       3,
+	// 	Name:      "Pushpa",
+	// 	Language:  "Telugu",
+	// 	Image:     "require('~/assets/images/Pushpa.png')",
+	// 	HeadImage: "require('~/assets/images/Pushpa.png')",
+	// 	Tags: []string{
+	// 		"Telugu",
+	// 		"U/A",
+	// 		"2021",
+	// 		"Si-fi/Action",
+	// 		"2h 28m",
+	// 	},
+	// 	Comment: "To find out if his reality is a physical or mental construct, Mr. Anderson, aka Neo, will have to choose to follow the white rabbit once more. If he\"s learned anything, it's that choice, while an illusion...",
+	// },
 }
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Home Page Hit")
-}
-
-func handleRequests() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/movie", allMovies)
-	log.Fatal(http.ListenAndServe(":8082", nil))
+func getMovies(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, movieList)
 }
 
 func main() {
-	handleRequests()
+	router := gin.Default()
+	router.GET("/movies", getMovies)
+	router.Run(":8080")
 }
