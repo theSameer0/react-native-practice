@@ -1,22 +1,23 @@
 import axios from "axios"
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setMovieData , setCurrentMovieData } from "~/features/home/redux/action";
 
-const GET_MOVIE_URL = 'http://localhost:9090'
-const config = {
-  headers: {
-    "Access-Control-Allow-Origin":"*",
-    "Access-Control-Allow-Credentials": true,
-  }
-}
 
 export default function getMovies() {
+  const dispatch = useDispatch()
   const fetchData = () => {
-    const baseURL = "https://api.sampleapis.com/coffee";
-    axios.get(`${GET_MOVIE_URL}/movies`, config)
+
+    const baseURL = "https://api.sampleapis.com/coffee/hot";
+    axios.get(`${baseURL}`)
     .then(
-      (response) => console.log(response.data)
+      (response) => {
+        // dispatch(setMovieData(response.data))
+        // dispatch(setCurrentMovieData(response.data))
+        console.log(response.data)
+      }
     )
-    .catch((err)=>console.log(err))
+    .catch((err)=>console.log("hello",err))
   };
   fetchData()
 }

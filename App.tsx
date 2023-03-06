@@ -10,15 +10,15 @@ import { Provider } from 'react-redux';
 import { Store } from './src/redux/store';
 import { NavigationContainer } from '@react-navigation/native';
 import movieDataUpdate from '~/features/home/redux/services';
-import getMovies from '~/api/modal/fetchData';
 // import getMovies from '~/api/modal/fetchData';
+import getMovies from '~/api/modal/fetchData';
 
 // useEffect(() => {
 //   getMovies()
 // }, [])
 
 const App = () => {
-  getMovies()
+  // getMovies()
   return (
     <Provider store = {Store}>
       <NavigationContainer>

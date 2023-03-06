@@ -19,6 +19,7 @@ export default function CustomView(props:any) {
       props.navigation.navigate('MovieDetail',{key:props.item.key})
   }
   // console.log(typeof(['hey','ae','adf']))
+  // console.log(image.toNodeRequire)
   return (
     <Pressable
       onPress={moveToMovieDetail}

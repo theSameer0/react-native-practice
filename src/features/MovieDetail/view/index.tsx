@@ -86,7 +86,7 @@ export default function MovieDetail({navigation,route}:any) {
   }
     // console.log(activeState);
     const activeData = Data[key]
-    // console.log("activeData: ",activeData)
+    // console.log("activeData: ",activeData,key,Data)
     // console.log(key)
 
   return (

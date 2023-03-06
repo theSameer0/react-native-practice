@@ -9,6 +9,7 @@ import StackHome from '../component/StackHome/StackHome';
 import MovieDetail from '../../MovieDetail/view/index';
 import App from '../redux/services';
 import { useSelector } from 'react-redux';
+import getMovies from '~/api/modal/fetchData';
 
 // useEffect(() => {
 //     movieDataUpdate()
@@ -17,7 +18,7 @@ import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
 App()
-
+// getMovies();
 export const Home = () => {
     return (
         <Stack.Navigator
