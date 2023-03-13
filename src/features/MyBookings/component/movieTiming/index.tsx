@@ -5,12 +5,7 @@ import { useSelector } from 'react-redux'
 
 
 
-export default function MovieTiming() {
-    const bookingDate = useSelector((state:any)=>state.movieReducer)
-    const date = new Date();
-    date.setDate(date.getDate() + bookingDate.bookingDate);
-    const bookMovieDetail = bookingDate.bookingMovieDetail
-    
+export default function MovieTiming({date,time}:any) {
 
   return (
     <View style = {styles.header}>
@@ -21,7 +16,7 @@ export default function MovieTiming() {
         </View>
         <View style = {styles.time}>
             <Text>Show Time</Text>
-            <Text style = {styles.text}>{bookMovieDetail[2]}</Text>
+            <Text style = {styles.text}>{time}</Text>
         </View>
     </View>
   )

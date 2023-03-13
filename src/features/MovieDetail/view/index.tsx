@@ -10,9 +10,10 @@ import Ionicon from 'react-native-vector-icons/Ionicons'
 import { useDispatch,useSelector } from 'react-redux'
 import MovieIntro from '../component/MovieIntro/index'
 import MovieDateShow from '../component/MovieDateShow/index'
-import MovieTimingShow from '../component/MovieTimingShow/index'
+import {MovieTimingShow} from '../component/MovieTimingShow/index'
 import ModalBottomSheet from '../component/ModalBottomSheet'
 import MovieBrief from '../component/MovieBrief'
+import { MovieData } from '~/features/home/redux/interface'
 // const Data = {
 //     Matrix : {
 //       image : require('~/assets/images/MatrixHeader.png'),
@@ -67,36 +68,24 @@ import MovieBrief from '../component/MovieBrief'
 
 
 export default function MovieDetail({navigation,route}:any) {
-  const dispatch = useDispatch()
   const activeState = useSelector((state:any)=>state.langReducer)
-  const TimingData = activeState.TheatreData
+  
   let Data = activeState.Data
-  const key = route.params.key
-  const makeTheatreTimingData = () => {
-    let tmpData = []
-    for (var i =0 ;i<TimingData.length ; i++){
-      tmpData.push({
-        title: TimingData[i].name,
-        location : TimingData[i].comment,
-        data: TimingData[i].timings
-      })
+  const Id = route.params.id
+    let activeData;
+    for (var i in Data) {
+      if (Data[i].id == Id) {
+        activeData = Data[i];
+      }
     }
-    // console.log(tmpData)
-    return tmpData
-  }
-    // console.log(activeState);
-    const activeData = Data[key]
-    // console.log("activeData: ",activeData,key,Data)
-    // console.log(key)
-
   return (
     <View style = {styles.body}>
-        <Image style = {styles.image} source = {activeData.headImage}/>
+        <Image style = {styles.image} source = {{uri:activeData.headImage}}/>
         <Ionicon name = 'arrow-back' style = {styles.icon} size={30} color='#fff' onPress={()=>navigation.goBack()} />
         <MovieIntro activeData = {activeData}/>
         <MovieBrief activeData = {activeData}/>
         <MovieDateShow />
-        <MovieTimingShow makeTheatreTimingData = {makeTheatreTimingData} keys = {key}/>
+        <MovieTimingShow  Id = {Id}/>
         <ModalBottomSheet lang = {activeData.tags[0]} navigation = {navigation}/>
     </View>
   )

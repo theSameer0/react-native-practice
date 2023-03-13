@@ -1,8 +1,11 @@
+export interface Image {
+    uri: string,
+}
 export interface MovieData {
-    key: number,
+    id: string,
     name: string,
-    language: NodeRequire,
-    image : NodeRequire,
+    language: string,
+    image : string,
     headImage : string,
     tags: string[],
     comment: string,
@@ -11,7 +14,6 @@ export interface MovieData {
 export interface TheatreData {
     id: string,
     name: string,
-    comment: string,
-    image: NodeRequire,
-    timings : string[],
+    location: string,
+    image: string,
 }

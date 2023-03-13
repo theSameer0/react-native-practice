@@ -16,16 +16,19 @@ export default function CustomView(props:any) {
 
   const moveToMovieDetail = () => {
       dispatch(setCurrentMovie(name))
-      props.navigation.navigate('MovieDetail',{key:props.item.key})
+      // console.log(props.item);
+      props.navigation.navigate('MovieDetail',{id:props.item.id})
   }
   // console.log(typeof(['hey','ae','adf']))
   // console.log(image.toNodeRequire)
+  // console.log("image: ",props.item)
   return (
     <Pressable
       onPress={moveToMovieDetail}
     >
         <View style = {styles.body}>
-          <Image style = {styles.image} source={image} />
+          <Image style = {styles.image} source={{uri: image}} />
+          {/* <Image style = {styles.image} source={{uri:"https://ik.imagekit.io/ronwon/icons/Acc2.png"}} /> */}
           <Text 
             style = {styles.title}
             numberOfLines={1}
@@ -36,7 +39,7 @@ export default function CustomView(props:any) {
             style = {styles.comment}
             numberOfLines={1}
           >
-            {props.item.language?props.item.language : props.item.comment}
+            {props.item.language?props.item.language : props.item.location}
           </Text>
         </View>
     </Pressable>

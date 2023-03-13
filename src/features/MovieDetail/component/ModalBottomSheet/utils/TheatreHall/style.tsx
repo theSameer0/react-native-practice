@@ -25,12 +25,16 @@ export const styles = StyleSheet.create({
     },
     seat: {
         flexDirection: 'column',
+        justifyContent:'space-evenly',
+        marginLeft: 8,
+        marginRight: 8,
     },
     cell:{
         width: 20,
         height: 20,
         borderWidth: 1,
-        margin: 4,
+        marginLeft: 4,
+        marginRight:4,
         marginBottom: 8,
         borderRadius: 5,
     },
@@ -42,6 +46,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: 20,
         height: 20,
+        margin:0,
     },
 });
 

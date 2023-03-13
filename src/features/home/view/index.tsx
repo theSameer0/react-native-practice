@@ -9,17 +9,17 @@ import StackHome from '../component/StackHome/StackHome';
 import MovieDetail from '../../MovieDetail/view/index';
 import App from '../redux/services';
 import { useSelector } from 'react-redux';
-import getMovies from '~/api/modal/fetchData';
+import InitialCall from '../redux/services';
 
 // useEffect(() => {
 //     movieDataUpdate()
 //   }, [])
   
 
+
 const Stack = createStackNavigator();
-App()
-// getMovies();
 export const Home = () => {
+    InitialCall();
     return (
         <Stack.Navigator
             initialRouteName='Movies2'

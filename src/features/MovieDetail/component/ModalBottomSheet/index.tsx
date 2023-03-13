@@ -9,15 +9,12 @@ import Header from './utils/Header'
 import BookButton from './utils/BookButton'
 import { setTmpSeat } from '../../redux/action'
 
-export default function ModalBottomSheet({lang,navigation}:any) {
-    const [currentSeat,setCurrentSeat] = useState(0)
-    const mainSeat = useSelector((state:any)=>state.movieReducer.seat)
+export default function ModalBottomSheet({makeTheatreTimingData,lang,navigation}:any) {
     const dispatch = useDispatch()
     const isModalVisible = useSelector((state:any)=>state.movieReducer.isModalVisible)
 
     const setModalFalse = () => {
         dispatch(setModalVisible(false));
-        dispatch(setTmpSeat(mainSeat))
     }
     const handleClickOnTime = () => {
         dispatch(setModalVisible(!isModalVisible))
@@ -33,6 +30,7 @@ export default function ModalBottomSheet({lang,navigation}:any) {
             onSwipeComplete={()=>handleClickOnTime()}
             animationIn="bounceInUp"
             animationOut="bounceOutDown"
+            
             animationInTiming={900}
             animationOutTiming={500}
             backdropTransitionInTiming={1000}
@@ -41,8 +39,8 @@ export default function ModalBottomSheet({lang,navigation}:any) {
         >
         <View style = {styles.modalContent}>
             <Header lang = {lang} navigation = {navigation}/>
-            <TheatreHall currentSeat = {currentSeat} setCurrentSeat = {setCurrentSeat}/>
-            <BookButton navigation = {navigation} currentSeat = {currentSeat} setCurrentSeat = {setCurrentSeat}/>
+            <TheatreHall/>
+            <BookButton navigation = {navigation} />
         </View>
         </Modal>
     </View>

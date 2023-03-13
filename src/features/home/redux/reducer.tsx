@@ -3,7 +3,6 @@ import { SET_LANG, SET_CURRENT_MOVIE, SET_MOVIE_DATA, SET_THEATRE_DATA , SET_CUR
 let initialState = {
     lang: 'All',
     currentMovie: '',
-    currentMovieData: [],
     Data: [],
     TheatreData: [],
 }
@@ -21,11 +20,6 @@ function langReducer (state=initialState, action:any) {
               Data: action.payload,
             }
             break;
-        case SET_CURRENT_MOVIE_DATA:
-          return {
-            ...state,
-            currentMovieData: action.payload,
-          }
         case SET_THEATRE_DATA:
             return {
               ...state,

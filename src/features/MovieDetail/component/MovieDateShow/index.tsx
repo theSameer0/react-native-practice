@@ -16,17 +16,16 @@ const Months = [
 
 const listDay = () => {
     let Day = []
-    let day = new Date().getDay();
     let date = new Date();
-    // console.log(date);
-    for (var i=day,j=0;j<7;j++){
+    date.setDate(date.getDate());
+    console.log(date);
+    for (var j=0;j<7;j++){
       Day.push({
         date: date.getDate(),
         month: Months[date.getMonth()],
-        day: WeekDays[i]
+        day: WeekDays[date.getDay()]
       })
       date.setDate(date.getDate()+1);
-      i = (i+1)%7;
     }
     Day[0].day = 'TODAY'
     Day[1].day = 'TOMO'

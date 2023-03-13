@@ -2,13 +2,17 @@ import { View, Text, Pressable } from 'react-native'
 import React from 'react'
 import { styles } from './style'
 import { useDispatch, useSelector } from 'react-redux';
-import { setSeatStatus } from '~/features/MovieDetail/redux/action';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { setTmpSeat } from '~/features/MovieDetail/redux/action';
 
 function intToChar(int:number) {
     const base = 'A'.charCodeAt(0)
     return String.fromCharCode(base + int)
 }
+
+
+interface Seats {
+    seat: boolean[][],
+};
 
 function Seats(){
     const CreatSeat = ({ id }: any) => {
@@ -16,12 +20,15 @@ function Seats(){
     const activeMovie = useSelector((store: any) => store.movieReducer);
     // const tmpSeat = activeMovie.tmpSeat;
     // let newSeat = tmpSeat.slice()
-    const mainSeat = activeMovie.seat;
+    const mainSeat = activeMovie.tmpSeat;
+    // let initialVal = Array(12).fill(false).map(row=>new Array(12).fill(false))    // console.log(initialVal)
+    // const [mainSeat,setMainSeat] = useState<Boolean[][]>(initialVal)
     let newSeat = mainSeat
     const handleSeatSelection = (row: any, col: any) => {
         if(!mainSeat[row][col]){
             newSeat[row][col] = newSeat[row][col] ? false : true
-            dispatch(setSeatStatus(newSeat))
+            dispatch(setTmpSeat(newSeat))
+            // setMainSeat(newSeat)
         }
     }
     let [row, col] = id.split(',')
@@ -30,14 +37,7 @@ function Seats(){
     // console.log(row, col)
     return (
         < Pressable onPress={() => handleSeatSelection(row, col)}>
-            <View style={[styles.screen, {
-                width: 20,
-                height: 20,
-                marginLeft: 5,
-                marginRight: 5,
-                marginTop: 16,
-                borderRadius: 4
-            },
+            <View style={[styles.cell,
             (newSeat[row][col] ? {
                 backgroundColor: '#EBF7F1',
                 borderColor: '#3BB273',
@@ -52,41 +52,28 @@ function Seats(){
         )
     }
     const seatRow = [];
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 12; i++) {
         const seatCol = []
-        for (let j = 0; j < 11; j++) {
-            if (j == 5) {
+        for (let j = 0; j < 13; j++) {
+            if (j == 6) {
                 seatCol.push(
-                    <View style={[styles.screen,
-                        {
-                            width: 20,
-                            height: 20,
-                            marginLeft: 10,
-                            marginTop: 16,
-                            borderRadius: 4,
-                            backgroundColor: '#fff',
-                            borderWidth: 0
-                        }]} />
+                    <View style={styles.visible} />
                         )
                     }
             else {
-                var k = j > 5 ? j - 1 : j
+                var k = j > 6 ? j - 1 : j
                 let setId = i.toString() + ',' + k.toString() + ',';
                 seatCol.push(
                     <CreatSeat id={setId} />
                     )
                 }
             }
-            seatRow.push(<View style={{ flexDirection: 'row' }}>{seatCol}</View>)
+            seatRow.push(<View style={{ justifyContent: 'space-evenly', flexDirection: 'row' }}>{seatCol}</View>)
         }
     return (seatRow)
 }
 
 export default function TheatreHall() {
-    const newSeat = useSelector((store:any)=> store.movieReducer.seat)
-    const dispatch = useDispatch();
-
-
     return (
         <View style = {styles.theatreHall}>
             <View style={styles.stage}>
@@ -95,7 +82,7 @@ export default function TheatreHall() {
                 </Text>
                 <View style={styles.screen} />
             </View>
-            <View style={[{ alignSelf: 'center', },styles.seat]}>
+            <View style={styles.seat}>
                 <Seats/>
             </View>
         </View>

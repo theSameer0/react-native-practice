@@ -33,10 +33,3 @@ export const setCurrentMovie = (movie: any) => {
         payload : movie,
     }
 }
-
-export const setCurrentMovieData = (currentMovie : MovieData[])=>{
-    return {
-        type : SET_CURRENT_MOVIE_DATA,
-        payload : currentMovie,
-    }
-}

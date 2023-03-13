@@ -1,19 +1,63 @@
-import { MovieData , TheatreData } from "./interface";
+import { Image, MovieData , TheatreData } from "./interface";
 import { useDispatch } from "react-redux";
 import { setCurrentMovieData, setMovieData , setTheatreData  } from "./action";
 import axios from "axios";
+import { useEffect } from "react";
 
-function App() {
+function InitialCall() {
+    useEffect(() => {
+      fetchData()
+      fetchTheatre()
+    }, [])
+    
     const dispatch = useDispatch()
+
+    // const baseURL = "http://192.168.0.119:8080";
+    const baseURL = "http://10.0.2.2:8080"
+    // const baseURL = "http://192.168.119.45:8080"
     const fetchData = () => {
-        const baseURL = "http://10.0.2.2:8080";
+        console.log("entered")
+        var MovieDataList : MovieData[] = []
         axios.get(`${baseURL}/movies`)
-        .then(
-        (response) => {
-            console.log(response.data)
+        .then((response) => {
+            var Data = response.data;
+            // for ( var inData in Data) {
+            //     var tmpMovie: MovieData = {
+            //         key: Data[inData].key,
+            //         name: Data[inData].name,
+            //         language: Data[inData].language,
+            //         image: Data[inData].image,
+            //         headImage : Data[inData].headImage,
+            //         tags: Data[inData].tags,
+            //         comment: Data[inData].comment
+            //     }
+            //     MovieDataList.push(tmpMovie)
+            // }
+            dispatch(setMovieData(Data))
+            // console.log(Data)
         })
         .catch((err)=>console.log(err))
     };
+    const fetchTheatre = () => {
+        var TheatreDataList: TheatreData[] = []
+        axios.get(`${baseURL}/theatres`)
+        .then((response)=>{
+            var Theatre = response.data;
+            // for (var i in Theatre) {
+            //     var tmpTheatre: TheatreData = {
+            //         id:  Theatre[i].id,
+            //         name:  Theatre[i].name,//  "Urvashi Cinema Hall",
+            //         location: Theatre[i].location,//"Shivaji Nagar",
+            //         image:   Theatre[i].image,//"https://ik.imagekit.io/2h0gcydui/images/UrvashiCinemaHall.png",
+            //         timings: Theatre[i].timings,
+            //     }
+            //     TheatreDataList.push(tmpTheatre);
+            // }
+            dispatch(setTheatreData(Theatre))
+            // console.log("fetch",Theatre)
+        })
+        .catch((err)=>console.log(err))
+    }
     function movieDataUpdate(){
       var MovieDataList : MovieData[] = []
       let list = [
@@ -210,9 +254,8 @@ function App() {
         }
         dispatch(setTheatreData(TheatreDataList))
     }
-        
-    // fetchData()
-    movieDataUpdate()
-    theatreDataUpdate()
+    console.log("hello")
+    // movieDataUpdate()
+    // theatreDataUpdate()
 }
-export default App;
+export default InitialCall;

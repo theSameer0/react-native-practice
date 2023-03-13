@@ -12,7 +12,7 @@ export default function DateShow(props:object) {
     const ind = props.index;
     const changeDate = () => {
         dispatch(setBookingDate(ind))
-        // console.log(bookingDate)
+        console.log(bookingDate)
     }
     // console.log(props.index)
     return (

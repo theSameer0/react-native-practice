@@ -1,4 +1,4 @@
-import { SET_BOOKING_DATE , SET_BOOKING_MOVIE_DETAIL, SET_MODAL_VISIBLE, SET_SEAT_STATUS ,SET_TMP_SEAT} from "./action";
+import { SET_AVAIL_SHOW, SET_BOOKING_DATE , SET_BOOKING_MOVIE_DETAIL, SET_CURRENT_SEAT_DETAIL, SET_IS_DATE_CHANGED, SET_MODAL_VISIBLE, SET_SEAT_STATUS ,SET_TMP_SEAT} from "./action";
 
 let initialState = {
     bookingDate: 0,
@@ -6,6 +6,8 @@ let initialState = {
     bookingMovieDetail : [
         '','','',
     ],
+    currentSeatDetail: {},
+    availShow: [],
     seat: [
         [false,false,false,false,false,false,false,false,false,false,false,false,],
         [false,false,false,false,false,false,false,false,false,false,false,false,],
@@ -34,11 +36,20 @@ let initialState = {
         [false,false,false,false,false,false,false,false,false,false,false,false,],
         [false,false,false,false,false,false,false,false,false,false,false,false,],
     ],
-    // seatsJSX : [],
 }
 
-function movieReducer (state=initialState, action) {
+function movieReducer (state=initialState, action:any) {
     switch (action.type) {
+        case SET_CURRENT_SEAT_DETAIL:
+            return {
+                ...state,
+                currentSeatDetail: action.payload,
+            }
+        case SET_AVAIL_SHOW: 
+            return {
+                ...state,
+                availShow: action.payload,
+            }
         case SET_TMP_SEAT:
             return {
                 ...state,

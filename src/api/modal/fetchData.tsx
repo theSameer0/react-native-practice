@@ -7,18 +7,31 @@ import { setMovieData , setCurrentMovieData } from "~/features/home/redux/action
 export default function getMovies() {
   const dispatch = useDispatch()
   const fetchData = () => {
-
-    const baseURL = "https://api.sampleapis.com/coffee/hot";
-    axios.get(`${baseURL}`)
+    // console.log("reaced")
+    const config = {
+      headers:{
+        'Access-Control-Allow-Origin': '*', 
+        'Access-Control-Allow-Headers': '*',
+      }
+    };
+    const baseURL = "http://192.168.119.45:8080";
+    const baseURL2 = "http://192.168.0.119:8080";
+    axios.get(`${baseURL}/movies`)
     .then(
       (response) => {
-        // dispatch(setMovieData(response.data))
-        // dispatch(setCurrentMovieData(response.data))
-        console.log(response.data)
+        // console.log("hey")
+        dispatch(setMovieData(response.data))
+        dispatch(setCurrentMovieData(response.data))
+        // console.log(response.data)
       }
     )
-    .catch((err)=>console.log("hello",err))
+    .catch((err)=>{
+      // console.log("error")
+      console.log("helloError: ",err )
+    })
   };
+  // fetchTheatre()
+  // console.log("runeed")
   fetchData()
 }
 

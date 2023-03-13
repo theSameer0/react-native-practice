@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         // paddingHorizontal: 12,
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
-        minHeight: '50%',
+        minHeight: '40%',
         maxHeight: '90%',
         paddingBottom: 0,
         // borderWidth:1,

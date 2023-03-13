@@ -7,7 +7,6 @@ import CustomHeader from '../CustomHeader/CustomHeader'
 import CustomView from '../CustomView/CustomView'
 import { styles } from './styles'
 import { useSelector } from 'react-redux'
-import { ScrollView } from 'react-native-gesture-handler'
 
 // export const Data = [
 //   {
@@ -108,7 +107,7 @@ export default function TheaterList() {
     var dummyData = {
       name: 'Cinema Hall',
       comment: 'DLF Mall',
-      image: require('~/assets/images/Theatre.png')
+      image: "https://ik.imagekit.io/2h0gcydui/images/Theatre.png"
     }
     const len = Data.length;
     for (var i = 0 ;i<len;i+=2){
@@ -121,7 +120,6 @@ export default function TheaterList() {
       }
       newData.push(tmpList)
     }
-    // console.log(newData)
     return newData;
   }
   return (
@@ -132,7 +130,6 @@ export default function TheaterList() {
             horizontal
             keyExtractor={(item,index)=>index.toString()}
             showsHorizontalScrollIndicator = {false}
-            // numColumns={2}
             renderItem={
               ({item}) => 
               <View>

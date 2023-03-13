@@ -11,7 +11,7 @@ function intToChar(int:number) {
     return String.fromCharCode(base + int)
 }
 
-export default function SeatPosition({countSeat,seats}:any) {
+export default function SeatPosition({id,countSeat,seats}:any) {
     // const bookingDate = useSelector((state:any)=>state.movieReducer)
     // const seatStatus = bookingDate.tmpSeat;
     // let countSeat = 0
@@ -30,7 +30,7 @@ export default function SeatPosition({countSeat,seats}:any) {
     <View style = {styles.header}>
         <SeatRow left = {'Screen'} right = {4}/>
         <SeatRow left = {'Seats('+countSeat+')'} right = {seats}/>
-        <SeatRow left = {'Ticket No.'} right = {uuid.v4()}/>
+        <SeatRow left = {'Ticket No.'} right = {id}/>
     </View>
   )
 }
