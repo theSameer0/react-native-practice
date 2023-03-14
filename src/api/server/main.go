@@ -375,7 +375,7 @@ func main() {
 	router.POST("/seats/:mId/:tId/:date/:time", setSeatsOfShow)
 	router.POST("/ticket", setTicket)
 	// fmt.Printf("type of %T", `require("~/asset/images/83.png")`)
-	router.Run(":8080")
+	router.Run(":50001")
 
 	// for _, t := range showList {
 	// 	fmt.Printf("('%s','%s','%s','%s','%s','%s'),\n", t.Id, t.Time, t.Seats, t.Date, t.MovieId, t.TheatreId)
