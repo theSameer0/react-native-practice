@@ -14,7 +14,7 @@ function intToChar(int:number) {
 export default function BookButton({navigation}:any) {
   const dispatch = useDispatch()
   const movieState = useSelector((state:any)=>state.movieReducer)
-  const tmpSeat = movieState.tmpSeat
+  const tmpSeat = movieState.seat;
   // const activeSeat = 
   const goToBooking = () => {
       const mainSeat = movieState.seat
@@ -28,7 +28,12 @@ export default function BookButton({navigation}:any) {
           //   cnt ++;
           //   seats.push(intToChar(i).toString()+(j+1).toString()+',')
           // }
-          if(tmpSeat[i][j]){
+          if(tmpSeat[i][j].state==1){
+            cnt++;
+            seats.push(intToChar(i).toString()+(j+1).toString()+',')
+            overAllSeats.push(intToChar(i).toString()+(j+1).toString()+',')
+          }
+          if(tmpSeat[i][j].state==2){
             cnt++;
             overAllSeats.push(intToChar(i).toString()+(j+1).toString()+',')
           }
@@ -49,13 +54,13 @@ export default function BookButton({navigation}:any) {
       setSeatStatusURL(postData.movieId,postData.id,postData.data,getTime,sendSeat);
       dispatch(setSuccessVisible(true))
       dispatch(setModalVisible(false))
-      navigation.navigate("My Bookings",{count:overAllSeats.length,seats:overAllSeats})
+      navigation.navigate("My Bookings",{count:seats.length,seats:seats})
     }
     const getPrice = () => {
       let count = 0
       for (var i = 0;i<12;i++){
         for (var j = 0;j<12;j++){
-          if(tmpSeat[i][j]){
+          if(tmpSeat[i][j].state==1){
             count ++ 
           }
         }

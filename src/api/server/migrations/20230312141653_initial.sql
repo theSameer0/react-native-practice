@@ -40,7 +40,9 @@ CREATE TABLE IF NOT EXISTS shows (
     Seats text,
     Date text,
     MovieId text,
-    TheatreId text
+    TheatreId text,
+    FOREIGN KEY (MovieId) REFERENCES movies(Id),
+    FOREIGN KEY (TheatreId) REFERENCES theatre(Id)
 );
 CREATE TABLE IF NOT EXISTS ticket (
     Id text primary key,
@@ -51,11 +53,14 @@ CREATE TABLE IF NOT EXISTS ticket (
     Screen int,
     MovieId text,
     TheatreId text,
-    ShowId text
+    ShowId text,
+    FOREIGN KEY (MovieId) REFERENCES movies(Id),
+    FOREIGN KEY (TheatreId) REFERENCES theatre(Id),
+    FOREIGN KEY (ShowId) REFERENCES shows(Id)
 );
 
 -- +goose Down
-DROP TABLE movies;
-DROP TABLE theatre;
-DROP TABLE shows;
 DROP TABLE ticket;
+DROP TABLE shows;
+DROP TABLE theatre;
+DROP TABLE movies;

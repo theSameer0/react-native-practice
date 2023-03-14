@@ -13,15 +13,16 @@ import { setTicketDetails } from '../../redux/action'
 
 export default function TicketGenerate({navigation,route}:any) {
   const dispatch = useDispatch()
+  const bookingState = useSelector((state:any)=>state.bookingReducer)
+  const ticketData = bookingState.ticketDetail;
     useEffect(() => {
-      updateTicket();
-      setTicketDetailsURL(ticketData,dispatch)
+      let data = updateTicket();
+      console.log("useEffect Data:",data);
+      setTicketDetailsURL(data,dispatch)
     }, [])
     const makeStringDate = (date:Date) => {
       return date.getDate().toString()+'-'+(date.getMonth()+1).toString()+'-'+date.getFullYear().toString()
     }
-    const bookingState = useSelector((state:any)=>state.bookingReducer)
-    const ticketData = bookingState.ticketDetail;
     const movieState = useSelector((state:any)=>state.movieReducer)
     const Data = movieState.bookingMovieDetail
     const seatDetail = movieState.currentSeatDetail;
@@ -47,8 +48,9 @@ export default function TicketGenerate({navigation,route}:any) {
         theatreId: seatDetail.id,
         showId: seatDetail.id,
       }
-      console.log(tmpTicket)
+      // console.log(tmpTicket)
       dispatch(setTicketDetails(tmpTicket))
+      return tmpTicket;
     }
   return (
     <View>

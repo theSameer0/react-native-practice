@@ -9,3 +9,8 @@ export interface AvailShow {
     timing: string,
     seats: string,
 }
+export interface Seat {
+    id: string,
+    state: number,
+    booked: boolean,
+}

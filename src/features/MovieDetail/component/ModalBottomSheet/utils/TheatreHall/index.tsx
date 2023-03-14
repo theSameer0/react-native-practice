@@ -2,7 +2,7 @@ import { View, Text, Pressable } from 'react-native'
 import React from 'react'
 import { styles } from './style'
 import { useDispatch, useSelector } from 'react-redux';
-import { setTmpSeat } from '~/features/MovieDetail/redux/action';
+import { setSeatStatus, setTmpSeat } from '~/features/MovieDetail/redux/action';
 
 function intToChar(int:number) {
     const base = 'A'.charCodeAt(0)
@@ -20,16 +20,19 @@ function Seats(){
     const activeMovie = useSelector((store: any) => store.movieReducer);
     // const tmpSeat = activeMovie.tmpSeat;
     // let newSeat = tmpSeat.slice()
-    const mainSeat = activeMovie.tmpSeat;
+    const mainSeat = activeMovie.seat;
     // let initialVal = Array(12).fill(false).map(row=>new Array(12).fill(false))    // console.log(initialVal)
     // const [mainSeat,setMainSeat] = useState<Boolean[][]>(initialVal)
     let newSeat = mainSeat
     const handleSeatSelection = (row: any, col: any) => {
-        if(!mainSeat[row][col]){
-            newSeat[row][col] = newSeat[row][col] ? false : true
-            dispatch(setTmpSeat(newSeat))
-            // setMainSeat(newSeat)
+        if(newSeat[row][col].state == 1){
+            newSeat[row][col].state = 0;
+            newSeat[row][col].booked = false;
+        }else if(newSeat[row][col].state == 0){
+            newSeat[row][col].state = 1;
+            newSeat[row][col].booked = true;
         }
+        dispatch(setSeatStatus(newSeat))
     }
     let [row, col] = id.split(',')
     row = parseInt(row)
@@ -37,17 +40,22 @@ function Seats(){
     // console.log(row, col)
     return (
         < Pressable onPress={() => handleSeatSelection(row, col)}>
-            <View style={[styles.cell,
-            (newSeat[row][col] ? {
+            <View 
+            style = {[styles.cell,
+            mainSeat[row][col].state == 1?{
                 backgroundColor: '#EBF7F1',
                 borderColor: '#3BB273',
-            } :
-            {
+            }:null,
+            mainSeat[row][col].state == 0?{
                 backgroundColor: '#F7F9FA',
                 borderColor: '#D7DCE0',
-            }
-            )
-        ]} />
+            }:null,
+            mainSeat[row][col].state == 2?{
+                backgroundColor: '#F7F1E5',
+                borderColor: '#FFAB00',
+            }:null,
+            ]}
+        />
         </Pressable >
         )
     }
@@ -62,6 +70,7 @@ function Seats(){
                     }
             else {
                 var k = j > 6 ? j - 1 : j
+
                 let setId = i.toString() + ',' + k.toString() + ',';
                 seatCol.push(
                     <CreatSeat id={setId} />

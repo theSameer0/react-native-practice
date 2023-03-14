@@ -12,20 +12,7 @@ function intToChar(int:number) {
 }
 
 export default function SeatPosition({id,countSeat,seats}:any) {
-    // const bookingDate = useSelector((state:any)=>state.movieReducer)
-    // const seatStatus = bookingDate.tmpSeat;
-    // let countSeat = 0
-    // let seats = []
-    // for( var i = 0;i<12;i++){
-    //     for(var j = 0;j<12;j++){
-    //         if(seatStatus[i][j]){
-    //             let seatId = intToChar(i).toString() + j.toString() + ',';
-    //             countSeat++
-    //             seats.push(seatId)
-    //         }
-    //     }
-    // }
-    // console.log(uniqid())
+
   return (
     <View style = {styles.header}>
         <SeatRow left = {'Screen'} right = {4}/>

@@ -1,4 +1,4 @@
-import { AvailShow } from "./interface"
+import { AvailShow, Seat } from "./interface"
 
 export const SET_BOOKING_DATE = 'SET_BOOKING_DATE'
 export const SET_MODAL_VISIBLE = 'SET_MODAL_VISIBLE'
@@ -42,7 +42,7 @@ export const setBookingMovieDetail = ( obj : any) => {
     }
 }
 
-export const setSeatStatus = (newSeat:any) => {
+export const setSeatStatus = (newSeat:Seat[][]) => {
     return {
         type : SET_SEAT_STATUS,
         payload : newSeat

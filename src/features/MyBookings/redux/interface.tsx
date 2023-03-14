@@ -9,12 +9,3 @@ export interface Ticket {
     theatreId: string,
     showId: string,
 }
-
-export interface SuccessTicketData {
-    success: boolean,
-    ticket: Ticket,
-}
-
-export interface FailureTicketData {
-
-}
