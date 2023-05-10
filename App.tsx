@@ -18,7 +18,7 @@ import getMovies from '~/api/modal/fetchData';
 // }, [])
 
 const App = () => {
-  
+  var sample = 0
   return (
     <Provider store = {Store}>
       <NavigationContainer>
